@@ -1,9 +1,5 @@
 import gensim as gs
 
-import numpy as np
-import pandas as pd
-
-import string
 
 class Doc2VecRepresentation(object):
     def __init__(self,
