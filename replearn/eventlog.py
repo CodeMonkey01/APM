@@ -1,12 +1,12 @@
 import gzip
 import json
+
 import numpy as np
-
-from pm4py.objects.log.importer.xes import importer as xes_import_factory
-from pm4py.objects.log import obj as log_lib
-
-from pm4py.algo.filtering.log.start_activities import start_activities_filter
 from pm4py.algo.filtering.log.end_activities import end_activities_filter
+from pm4py.algo.filtering.log.start_activities import start_activities_filter
+from pm4py.objects.log import obj as log_lib
+from pm4py.objects.log.importer.xes import importer as xes_import_factory
+
 
 class EventLog(object):
     def __init__(self, 

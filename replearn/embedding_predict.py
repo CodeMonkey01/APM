@@ -1,5 +1,6 @@
-import tensorflow as tf
 import numpy as np
+import tensorflow as tf
+
 
 class EmbeddingPredict(object):
     def __init__(self,

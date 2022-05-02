@@ -1,17 +1,13 @@
-from sklearn.cluster import AgglomerativeClustering, KMeans, DBSCAN
-from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score, silhouette_score, homogeneity_score, completeness_score
-from sklearn import preprocessing
-
-from scipy.spatial.distance import pdist
-from scipy.cluster.vq import vq, kmeans, whiten
-
-from nltk.cluster.kmeans import KMeansClusterer
-
 import fastcluster
-import scipy.cluster
 import numpy as np
-import nltk
+import scipy.cluster
+from scipy.cluster.vq import vq
+from sklearn import preprocessing
+from sklearn.cluster import KMeans
+from sklearn.metrics import adjusted_rand_score, normalized_mutual_info_score, homogeneity_score, completeness_score
+
 import replearn.b3 as b3
+
 
 class Clustering(object):
     def __init__(self,
