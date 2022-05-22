@@ -80,6 +80,7 @@ class Iteration:
         n_batch_size = hyperparameters[1]
         n_clusters = hyperparameters[2]
         vector_size = hyperparameters[3]
+        cluster_method = hyperparameters[4]
 
         # get sequences from event log as one-hot feature vector
         sequences = event_log.event_attributes_flat_onehot_features_2d
@@ -93,7 +94,7 @@ class Iteration:
 
         # cluster feature vector
         cluster_analysis = Clustering(event_log)
-        cluster_analysis.cluster(feature_vector, 'agglomerative', n_clusters, 'cosine')
+        cluster_analysis.cluster(feature_vector, cluster_method, n_clusters, 'cosine')
         cluster_result = cluster_analysis.evaluate()
 
         return cluster_result
@@ -110,6 +111,7 @@ class Iteration:
         n_batch_size = hyperparameters[1]
         n_clusters = hyperparameters[2]
         vector_size = hyperparameters[3]
+        cluster_method = hyperparameters[4]
 
         # train model
         doc2vec = Doc2VecRepresentation(event_log)
@@ -121,7 +123,7 @@ class Iteration:
 
         # cluster feature vector
         cluster_analysis = Clustering(event_log)
-        cluster_analysis.cluster(feature_vector, 'agglomerative', n_clusters, 'cosine')
+        cluster_analysis.cluster(feature_vector, cluster_method, n_clusters, 'cosine')
         cluster_result = cluster_analysis.evaluate()
 
         return cluster_result
@@ -136,6 +138,7 @@ class Iteration:
         n_batch_size = hyperparameters[1]
         n_clusters = hyperparameters[2]
         vector_size = hyperparameters[3]
+        cluster_method = hyperparameters[4]
 
         # init and train Model
         predictor = EmbeddingPredict(event_log)
@@ -147,7 +150,7 @@ class Iteration:
 
         # cluster feature vector
         cluster_analysis = Clustering(event_log)
-        cluster_analysis.cluster(feature_vector, 'agglomerative', n_clusters, 'cosine')
+        cluster_analysis.cluster(feature_vector, cluster_method, n_clusters, 'cosine')
         cluster_result = cluster_analysis.evaluate()
 
         return cluster_result
