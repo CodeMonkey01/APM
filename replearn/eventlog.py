@@ -72,7 +72,8 @@ class EventLog(object):
         log = log_lib.EventLog()
 
         # read json file
-        for tr in json_eventlog['cases']:
+        for tr in json_eventlog['traces']:
+        # for tr in json_eventlog['cases']:
             attr_dict = tr['attributes']
             evnt_list = tr['events']
 
