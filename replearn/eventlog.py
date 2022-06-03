@@ -2,8 +2,8 @@ import gzip
 import json
 import numpy as np
 
-from pm4py.objects.log.importer.xes import importer as xes_import_factory
-from pm4py.objects.log import obj as log_lib
+from pm4py.objects.log.importer.xes import factory as xes_import_factory
+from pm4py.objects import log as log_lib
 
 from pm4py.algo.filtering.log.start_activities import start_activities_filter
 from pm4py.algo.filtering.log.end_activities import end_activities_filter
@@ -69,15 +69,15 @@ class EventLog(object):
         with gzip.open(file_name, 'rb') as f:
             json_eventlog = json.load(f)
 
-        log = log_lib.EventLog()
+        log = log_lib.log.EventLog()
 
         # read json file
-        for tr in json_eventlog['traces']:
         # for tr in json_eventlog['cases']:
+        for tr in json_eventlog['traces']:
             attr_dict = tr['attributes']
             evnt_list = tr['events']
 
-            trace = log_lib.Trace()
+            trace = log_lib.log.Trace()
             trace.attributes['concept:name'] = tr['id']
 
             # attach attributes
@@ -85,7 +85,7 @@ class EventLog(object):
                 trace.attributes[key] = attr_dict[key]
 
             for evnt in evnt_list:
-                event = log_lib.Event()
+                event = log_lib.log.Event()
                 event['concept:name'] = evnt['name']
 
                 if evnt['timestamp'] is not None:
